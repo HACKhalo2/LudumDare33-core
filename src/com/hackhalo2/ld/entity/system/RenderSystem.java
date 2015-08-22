@@ -22,7 +22,6 @@ public class RenderSystem extends EntitySystem implements Comparator<Entity>, En
 	private Family family;
 	private SpriteBatch batch;
 	private Array<Entity> entities;
-	private boolean shouldSort = true;
 	private Rectangle viewBounds;
 
 	public RenderSystem() {
@@ -35,7 +34,7 @@ public class RenderSystem extends EntitySystem implements Comparator<Entity>, En
 	
 	@Override
 	public void update(float delta) {
-		if(this.shouldSort) this.sort();
+		this.entities.sort(this);
 		
 		this.batch.begin();
 		for(Entity entity : this.entities) {
@@ -43,8 +42,21 @@ public class RenderSystem extends EntitySystem implements Comparator<Entity>, En
 			Position pos = Components.POSITION.get(entity);
 			
 			if(Components.FOCUS.has(entity)) {
+				int focusX, focusY;
 				Focus focus = Components.FOCUS.get(entity);
-				focus.camera.position.set(pos.x + 8, pos.y + 16, 0);
+				
+				//System.out.println("X: "+pos.x+" Y: "+pos.y);
+				if(pos.x <= 56)
+					focusX = 64;
+				else if(pos.x >= 885)
+					focusX = 893;
+				else focusX = pos.x + 8;
+				
+				if(pos.y <= 14)
+					focusY = 46;
+				else focusY = pos.y + 32;
+				
+				focus.camera.position.set(focusX, focusY, 0);
 				focus.camera.update();
 				this.setView(focus.camera);
 			}
@@ -79,25 +91,6 @@ public class RenderSystem extends EntitySystem implements Comparator<Entity>, En
 		this.viewBounds.set(camera.position.x - width / 2, camera.position.y - height / 2, width, height);
 	}
 	
-	public boolean shouldSort() {
-		return this.shouldSort;
-	}
-	
-	public RenderSystem sort(boolean flag) {
-		this.shouldSort = flag;
-		
-		return this;
-	}
-	
-	public void forceSort() {
-		this.shouldSort = true;
-	}
-	
-	private void sort() {
-		this.shouldSort = false;
-		this.entities.sort(this);
-	}
-	
 	@Override
 	public void addedToEngine(Engine engine) {
 		ImmutableArray<Entity> temp = engine.getEntitiesFor(this.family);
@@ -107,28 +100,27 @@ public class RenderSystem extends EntitySystem implements Comparator<Entity>, En
 		}
 		
 		this.entities.shrink();
-		this.sort();
 		
 		engine.addEntityListener(this.family, this);
+		this.entities.sort(this);
 	}
 	
 	@Override
 	public void removedFromEngine(Engine engine) {
 		this.entities.clear();
-		this.shouldSort = false;
 	}
 	
 	@Override
 	public void entityAdded(Entity entity) {
 		this.entities.add(entity);
-		this.sort();
+		this.entities.sort(this);
 	}
 
 	@Override
 	public void entityRemoved(Entity entity) {
 		if(this.entities.contains(entity, true)) {
 			this.entities.removeValue(entity, true);
-			this.sort();
+			this.entities.sort(this);
 		}
 	}
 
@@ -137,7 +129,7 @@ public class RenderSystem extends EntitySystem implements Comparator<Entity>, En
 		Position posL = Components.POSITION.get(left);
 		Position posR = Components.POSITION.get(right);
 		
-		return posL.y = posR.y;
+		return posR.y - posL.y;
 	}
 
 	@Override

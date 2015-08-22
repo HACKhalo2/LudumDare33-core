@@ -1,16 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="80" height="20" tilewidth="16" tileheight="16" nextobjectid="1">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="80" height="10" tilewidth="16" tileheight="16" nextobjectid="1">
  <tileset firstgid="1" name="Tilemap" tilewidth="16" tileheight="16">
   <image source="Tilemap.png" width="512" height="512"/>
  </tileset>
- <layer name="Layer2" width="80" height="20">
+ <layer name="Floor" width="80" height="10">
   <data encoding="base64" compression="zlib">
-   eJztylsKgCAURVGFsgZij4lUM3H+Q/B83I9AjB5fxl6wuQrHOQAAAAAA/m9Ug+pUb/9QuezKu6pFRTXZf65cduXdrXR6X3VndzzcbQ3vALTPs/u0wzsZLxElCg==
+   eJztk0EOBCEIBJGf6P8fuXNwktoS97gnSIgjgzY0bURbW1tbW1vbv208Ph9fe52IjR0f2xN5idhEbOFM4p4Uhvcj6loW1kQO7xjCZnwoxnN5wfd3xjcHEysx6TNOrt4YezAHv/g2NmdgDLr5Tv0nHnsn79SFsao5eJbEcI77M6c3fabw37rcv+sxl9bDiLMW4poD3rHinM+N90o75tg69Vysq9Se+MZbcfLrN2BOKp1YZ1V+1W+ledfrWfNfXs5U75H3sN8PKKIXBw==
   </data>
  </layer>
- <layer name="Layer1" width="80" height="20">
+ <layer name="Background" width="80" height="10">
   <data encoding="base64" compression="zlib">
-   eJzt0cEJgDAQRcHV3oKNeLAQCzcHBYU9RBAMZAY+yPJyMgIAAADGsep0P3VL3VZXPuriZdei967n/6vT6XLzuf32fW1Kbrpnl71xa78dWZoZdg==
+   eJztzrsNgDAQBFG3Qym4EwwUwq8QDPTIIF14IdI52JFestGmpJRS6qtHxogZk22DIwd9bLkVBRsO7LYtjhL0seVOVFx4cNvWOWrQR6WU+qMXeDMQKA==
+  </data>
+ </layer>
+ <layer name="Forground" width="80" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgF1ATMQMwKxBxAzAal2YGYZVQcLO5MIPyUgVgViDWAWA1KqwOxyqg4WDyZQPiljYqTJT4KRsEoGAUjHaSMipMlDgMto+IkiQMA7VseKw==
+  </data>
+ </layer>
+ <layer name="Forground 1" width="80" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYEAFKQzYwag4fvGBtn+oiw+0/UNdHAZcgNgViN2QsDsQZ4yKg8U9CITfYIvXoSI+0PYPdfGBtn+oiw+0/UNdHAZaRsXJEh8F5AEAMF4/rQ==
   </data>
  </layer>
 </map>
