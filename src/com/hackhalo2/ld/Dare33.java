@@ -12,10 +12,12 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.hackhalo2.ld.entity.component.Focus;
 import com.hackhalo2.ld.entity.component.Player;
 import com.hackhalo2.ld.entity.component.Position;
 import com.hackhalo2.ld.entity.component.Render;
+import com.hackhalo2.ld.entity.component.TextBubble;
 import com.hackhalo2.ld.entity.system.InputSystem;
 import com.hackhalo2.ld.entity.system.RenderSystem;
 import com.hackhalo2.ld.entity.system.SoundEffectSystem;
@@ -28,9 +30,16 @@ public class Dare33 extends ApplicationAdapter {
 	private TmxMapLoader mapLoader;
 	private TiledMap map;
 	private Music music;
+	private Stage uiStage;
 	
 	@Override
 	public void create () {
+		this.uiStage = new Stage();
+		
+		this.mapLoader = new TmxMapLoader();
+		this.map = this.mapLoader.load("test.tmx");
+		this.tiledRenderer = new OrthogonalTiledMapRenderer(this.map, 0.75f);
+		
 		this.music = Gdx.audio.newMusic(Gdx.files.internal("STE-008.mp3"));
 		this.music.setLooping(true);
 		this.music.setVolume(0.5f);
@@ -41,9 +50,14 @@ public class Dare33 extends ApplicationAdapter {
 		this.entityEngine = new Engine();
 		Entity entity = new Entity();
 		
+		TextBubble bubble = new TextBubble(this.uiStage);
+		bubble.actor.startMessage().append("Test Message").appendElipses().endMessage();
+		bubble.x = 32;
+		bubble.y = 32;
+		
 		Texture tex = new Texture("Guy.png");
 		TextureRegion region = new TextureRegion(tex, 16, 32);
-		entity.add(new Position(0, 32));
+		entity.add(new Position(475, 32));
 		entity.add(new Render(region, 1/10f));
 		entity.add(new Focus(this.camera));
 		entity.add(new Player());
@@ -61,9 +75,6 @@ public class Dare33 extends ApplicationAdapter {
 		this.entityEngine.addSystem(new InputSystem());
 		this.entityEngine.addSystem(new SoundEffectSystem());
 		
-		this.mapLoader = new TmxMapLoader();
-		this.map = this.mapLoader.load("test.tmx");
-		this.tiledRenderer = new OrthogonalTiledMapRenderer(this.map, 0.75f);
 		this.music.play();
 	}
 	
@@ -82,11 +93,14 @@ public class Dare33 extends ApplicationAdapter {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
 		this.tiledRenderer.setView(this.camera);
-		this.tiledRenderer.render(new int[]{0, 1});
+		this.tiledRenderer.render(new int[]{0, 1, 2});
 		
 		this.entityEngine.update(delta);
 		
-		this.tiledRenderer.render(new int[]{2, 3});
+		this.tiledRenderer.render(new int[]{3, 4});
+		
+		this.uiStage.act(delta);
+		this.uiStage.draw();
 	}
 	
 	@Override
@@ -94,5 +108,6 @@ public class Dare33 extends ApplicationAdapter {
 		this.renderSystem.dispose();
 		this.music.stop();
 		this.music.dispose();
+		this.uiStage.draw();
 	}
 }

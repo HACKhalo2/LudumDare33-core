@@ -5,22 +5,27 @@
  </tileset>
  <layer name="Floor" width="80" height="10">
   <data encoding="base64" compression="zlib">
-   eJztk0EOBCEIBJGf6P8fuXNwktoS97gnSIgjgzY0bURbW1tbW1vbv208Ph9fe52IjR0f2xN5idhEbOFM4p4Uhvcj6loW1kQO7xjCZnwoxnN5wfd3xjcHEysx6TNOrt4YezAHv/g2NmdgDLr5Tv0nHnsn79SFsao5eJbEcI77M6c3fabw37rcv+sxl9bDiLMW4poD3rHinM+N90o75tg69Vysq9Se+MZbcfLrN2BOKp1YZ1V+1W+ledfrWfNfXs5U75H3sN8PKKIXBw==
+   eJztVcENgzAMtNkENuko7SY8qs7RT/eATWCSNmoszMk2QcqHFkunhGDsy5HYRPXskSHWcMXgB7G05QbAGyP6yfxu+FvfynwvTysG5vHWOPDz9ubx1Oek/aAzRg39TiPyl3V2vm13qWdzwFzRXiyeFl/0+8MrddqP2SvjNKKelvv+pHVdteq+10eiOhzVdp1LuEQ1SPO0ekfUM6K+EAFj9ZlL4jHSt38kzIUaebG39N7q4UN65oWPgGGueUbcWkenEm2j/YlmE3CeIad3lqzcNc7CmLkIH9RNMAUxS/5TBNTN0n+gRS+t35XW90X8S/q9jKxGhvUORoa4F1prhRoKbmTfcXxGH+Qb1Qlrj/JeeKb/+AZu1SWM
+  </data>
+ </layer>
+ <layer name="Floor2" width="80" height="10">
+  <data encoding="base64" compression="zlib">
+   eJztlQ0KgCAMRrfdpMNadJB+jpkDLbUhGZELe/BoSYJ8bUUIQGDFwwHuOTr9fQtQqs2vh2dsAcI4O7YWq2BuXQN7bq6uySKYW9dA+u2boUzeI/VHaR/z8+jOgxDX4lrFOQkhjHvwSmb+P/F0fn4GpOxOVyX5MV1QT4UakOfLvHR2LaCi9/k1NM3CT1tsZvxClg==
   </data>
  </layer>
  <layer name="Background" width="80" height="10">
   <data encoding="base64" compression="zlib">
-   eJztzrsNgDAQBFG3Qym4EwwUwq8QDPTIIF14IdI52JFestGmpJRS6qtHxogZk22DIwd9bLkVBRsO7LYtjhL0seVOVFx4cNvWOWrQR6WU+qMXeDMQKA==
+   eJztlVsKwjAQRaN/ug9fC1GxPpYh2A/34XsT/vhehHUl2n14o20Z4kxpQEiVHjg0TG76MYSMUp/M4YzRhwu4gksmV4FVkrWhBpuwnvHbsPz/NykTOXawxbiHB3iCx5RcnLVhDNuwk8FulHfFq3elt3nizrgV6i7Ja/+ujFuh7pKkf8xeD3qwD4dwENUmjB45Q/Oe+m/i3nH3T88E/faP4BpOlTwnfHKG5m1nh8mNrAOh7pKkf8yengn67d/AM7yo9HkSn6F529lh8iDrUKgXyEh3LjCDBSzSnQvNYMHP8wR7xkXW
   </data>
  </layer>
  <layer name="Forground" width="80" height="10">
   <data encoding="base64" compression="zlib">
-   eJxjYBgF1ATMQMwKxBxAzAal2YGYZVQcLO5MIPyUgVgViDWAWA1KqwOxyqg4WDyZQPiljYqTJT4KRsEoGAUjHaSMipMlDgMto+IkiQMA7VseKw==
+   eJxjYBgF1ATMQMwKxBxAzAal2YGYhcbizsPEncpArArEGkCsBqXVgViFxuLJRIfc4HZn2iATxwWGijtHwSgYBaNgpICUQSaOCwxWd7YMMnFcYLC4EwAB3Btp
   </data>
  </layer>
  <layer name="Forground 1" width="80" height="10">
   <data encoding="base64" compression="zlib">
-   eJxjYEAFKQzYwag4fvGBtn+oiw+0/UNdHAZcgNgViN2QsDsQZ4yKg8U9CITfYIvXoSI+0PYPdfGBtn+oiw+0/UNdHAZaRsXJEh8F5AEAMF4/rQ==
+   eJxjYEAFKQzYwUCJ4wKD1Z0DZb8LThdhBx5Usne4hN9wSX+gdOAKxG5I2B2IM2gsjis9DTV3DtZ4pbe9o/mXvuIDbf9o+NFGHBcYrO5sGWTiuMBQcecowA8Ax/I4yQ==
   </data>
  </layer>
 </map>
