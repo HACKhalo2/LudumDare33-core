@@ -9,6 +9,7 @@ import com.badlogic.ashley.core.EntitySystem;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
 import com.hackhalo2.ld.entity.component.Components;
@@ -81,10 +82,11 @@ public class SimpleAISystem extends EntitySystem implements EntityListener {
 		Entity entity = new Entity();
 		SimpleAI ai = new SimpleAI();
 		
-		Texture tex = new Texture("Random_"+this.rng.nextInt(4)+".png");
+		Texture tex = new Texture("Random_"+MathUtils.random(0, 7)+".png");
 		TextureRegion region = new TextureRegion(tex, 16, 32);
 		Render ren = new Render(region, 1/10f);
 		ren.direction = (byte)this.rng.nextInt(4);
+		ren.frame = MathUtils.random(0, 7);
 		ai.isFacingLeft = (ren.direction == 1 || ren.direction == 3);
 		ren.isIdle = false;
 		entity.add(ren);

@@ -4,6 +4,7 @@ import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -12,12 +13,14 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.hackhalo2.ld.actors.GameOverActor;
 import com.hackhalo2.ld.entity.component.Focus;
 import com.hackhalo2.ld.entity.component.GirlComponent;
 import com.hackhalo2.ld.entity.component.Player;
 import com.hackhalo2.ld.entity.component.Position;
 import com.hackhalo2.ld.entity.component.Render;
 import com.hackhalo2.ld.entity.component.TextBubble;
+import com.hackhalo2.ld.entity.system.GirlAISystem;
 import com.hackhalo2.ld.entity.system.InputSystem;
 import com.hackhalo2.ld.entity.system.RenderSystem;
 import com.hackhalo2.ld.entity.system.SimpleAISystem;
@@ -32,11 +35,19 @@ public class Dare33 extends ApplicationAdapter {
 	private TiledMap map;
 	private Stage uiStage;
 	private TextBubble bubble;
+	private GameOverActor actor;
+	private Music background;
 	private int index = 0;
 	
 	@Override
 	public void create () {
 		this.uiStage = new Stage();
+		
+		this.actor = new GameOverActor();
+		this.uiStage.addActor(this.actor);
+		
+		this.background = Gdx.audio.newMusic(Gdx.files.internal("background.mp3"));
+		this.background.setLooping(true);
 		
 		this.mapLoader = new TmxMapLoader();
 		this.map = this.mapLoader.load("test.tmx");
@@ -52,7 +63,7 @@ public class Dare33 extends ApplicationAdapter {
 		
 		Texture tex = new Texture("Guy.png");
 		TextureRegion region = new TextureRegion(tex, 16, 32);
-		entity.add(new Position(475, 32));
+		entity.add(new Position(16, 32));
 		entity.add(new Render(region, 1/10f));
 		entity.add(new Focus(this.camera));
 		entity.add(new Player());
@@ -61,8 +72,11 @@ public class Dare33 extends ApplicationAdapter {
 		entity = new Entity();
 		tex = new Texture("Crying_Girl.png");
 		region = new TextureRegion(tex, 16, 32);
-		entity.add(new Position(32, 32));
-		entity.add(new Render(region, 1/20f));
+		entity.add(new Position(475, 32));
+		Render ren = new Render(region, 1/20f);
+		ren.direction = 2;
+		ren.isIdle = false;
+		entity.add(ren);
 		entity.add(new GirlComponent());
 		this.entityEngine.addEntity(entity);
 		
@@ -71,6 +85,9 @@ public class Dare33 extends ApplicationAdapter {
 		this.entityEngine.addSystem(new InputSystem());
 		SimpleAISystem aiSystem = new SimpleAISystem();
 		this.entityEngine.addSystem(aiSystem);
+		this.entityEngine.addSystem(new GirlAISystem(new TextBubble(this.uiStage)));
+		
+		this.background.play();
 	}
 	
 	@Override
@@ -107,6 +124,8 @@ public class Dare33 extends ApplicationAdapter {
 	@Override
 	public void dispose() {
 		this.renderSystem.dispose();
+		this.background.stop();
+		this.background.dispose();
 		this.uiStage.draw();
 	}
 }

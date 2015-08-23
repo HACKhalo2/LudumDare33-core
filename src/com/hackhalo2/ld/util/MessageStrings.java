@@ -28,7 +28,7 @@ public class MessageStrings {
 				"Hey, Big Zam!", "I'm sorry mario, but the princess is in another castle"
 		};
 		talk = new String[] { "*sniffle*", "Mommy? Daddy?", "Mommy, where did you go?", "Mommy! Daddy!", "Where am I at?", "I'm so scared&",
-				"Sir?", "Sir, do you know where my Mommy and Daddy are at?", "Sir? Can you help me find them?", "Please sir, I'm really scared&",
+				"Sir?", "Sir, do you know where my Parents are?", "Sir? Can you help me find them?", "Please sir, I'm really scared&",
 				"Why aren't you helping me sir?", "Oh& alright& *sniffle*", "*sob*", "I miss my mommy and daddy&"
 		};
 		nice1 = new String[] { "Hrm?", "I'm sorry, I don't", "Alright, I guess I can do that." };
@@ -41,6 +41,9 @@ public class MessageStrings {
 				"my mommy has my favorite in her purse right now", "So we really need to find her quickly then, huh?", "uh huh!",
 				"Have any other hobbies?", "I like to color and paint&", "oh yea?", "yea, my daddy says I could be an artist when I grow up!",
 				"*chuckle* I bet!"};
+		mom = new String[] { "SAMATHA! THere you are!", "Get away from that man!", "what were you doing with him?", "You! You were trying to take my little girl!",
+				
+		};
 	}
 
 }

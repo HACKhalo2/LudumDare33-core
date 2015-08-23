@@ -83,6 +83,12 @@ public class TextBubbleActor extends Actor {
 		} else if(this.isDrawing) this.isDrawing = false;
 	}
 	
+	@Override
+	public float getWidth() {
+		if(this.message == null) return 0;
+		return this.message.length * 16;
+	}
+	
 	public boolean isDrawing() {
 		return this.isDrawing;
 	}

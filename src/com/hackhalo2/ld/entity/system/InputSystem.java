@@ -72,6 +72,8 @@ public class InputSystem extends EntitySystem {
 
 			pos.x += 1;
 		}
+		
+		player.bounds.setPosition(pos.x, pos.y);
 
 		if(inAction) {
 			ren.isIdle = false;
