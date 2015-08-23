@@ -8,6 +8,8 @@ public class SimpleAI implements Component {
 	public final Rectangle bounds;
 	public boolean isFacingLeft = false;
 	public int walkingSpeed = 1;
+	public int frames = 0;
+	public boolean special = false;
 
 	public SimpleAI() {
 		this.bounds = new Rectangle();

@@ -36,7 +36,7 @@ public class Dare33 extends ApplicationAdapter {
 	private Stage uiStage;
 	private TextBubble bubble;
 	private GameOverActor actor;
-	static boolean gameOver = false;
+	public static boolean gameOver = false;
 	static boolean alt = false;
 	private Music background;
 	private int index = 0;
@@ -103,6 +103,7 @@ public class Dare33 extends ApplicationAdapter {
 		float delta = Gdx.graphics.getDeltaTime();
 		
 		if(gameOver) {
+			System.out.println("Here");
 			this.actor.scrollup = true;
 			this.actor.taken = alt;
 			this.entityEngine.getSystem(SimpleAISystem.class).canSpawn = false;

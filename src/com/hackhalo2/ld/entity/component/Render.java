@@ -10,6 +10,7 @@ public class Render implements Component {
 	public float elapsedTime = 0f;
 	public boolean isIdle = true;
 	public byte direction = 0; //0 for right, 1 for left, 2 for special right, 3 for special left
+	public boolean forceRender = false;
 
 	public Render(TextureRegion region, float frameTime) {
 		this.region = region;

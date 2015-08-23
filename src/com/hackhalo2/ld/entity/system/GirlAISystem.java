@@ -44,7 +44,7 @@ public class GirlAISystem extends EntitySystem {
 		girl.bounds.setPosition(girlPos.x, girlPos.y);
 		
 		if(player.respond && !this.bubble.actor.isDrawing()) {
-			this.bubble.actor.startMessage().setMessageColor(Color.BLUE).append(MessageStrings.nice1[player.messageIndex]).endMessage();
+			this.bubble.actor.startMessage().setMessageColor(Color.CYAN).append(MessageStrings.nice1[player.messageIndex]).endMessage();
 			player.messageIndex++;
 			player.respond = false;
 			player.isResponding = true;
@@ -58,6 +58,7 @@ public class GirlAISystem extends EntitySystem {
 		
 		if((girl.messageIndex < 6 || (girl.respond && girl.firstIncounter)) && !this.bubble.actor.isDrawing()) {
 			if(girl.messageIndex > 8) {
+				Components.RENDER.get(thePlayer).forceRender = true;
 				this.getEngine().removeEntity(this.theGirl);
 				this.getEngine().removeSystem(this);
 				player.specialState = true;

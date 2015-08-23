@@ -78,6 +78,12 @@ public class RenderSystem extends EntitySystem implements Comparator<Entity>, En
 				
 				ren.region.setRegion(0, ren.direction * 32, 16, 32);
 			}
+			
+			if(ren.forceRender) {
+				ren.region.setRegion(0, ren.direction * 32, 16, 32);
+				ren.forceRender = false;
+			}
+			
 			this.batch.draw(ren.region, pos.x, pos.y);
 		}
 		this.batch.end();

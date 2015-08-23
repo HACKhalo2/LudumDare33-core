@@ -25,6 +25,7 @@ public class SimpleAISystem extends EntitySystem implements EntityListener {
 	private Rectangle viewBounds = new Rectangle();
 	private TextBubble bubble;
 	public boolean canSpawn = true;
+	public boolean momSpawned = false;
 
 	public SimpleAISystem(TextBubble bubble) {
 		super(1);
@@ -71,6 +72,8 @@ public class SimpleAISystem extends EntitySystem implements EntityListener {
 			pos = Components.POSITION.get(entity);
 			ai = Components.AI.get(entity);
 			
+			if(ai.special) continue;
+			
 			if(ai.isFacingLeft) pos.x -= ai.walkingSpeed;
 			else pos.x += ai.walkingSpeed;
 			
@@ -108,8 +111,32 @@ public class SimpleAISystem extends EntitySystem implements EntityListener {
 		this.getEngine().addEntity(entity);
 	}
 	
-	public void spawnMom() {
+	public Entity spawnMom(boolean spawnLeft) {
+		this.canSpawn = false;
+		this.momSpawned = true;
+		
 		Entity entity = new Entity();
+		SimpleAI ai = new SimpleAI();
+		ai.isFacingLeft = spawnLeft;
+		ai.special = true;
+		entity.add(ai);
+		
+		Texture tex = new Texture("Mother.png");
+		TextureRegion region = new TextureRegion(tex, 16, 32);
+		Render ren = new Render(region, 1/10f);
+		ren.direction = (byte)(spawnLeft ? 1 : 0);
+		ren.frame = MathUtils.random(0, 7);
+		ren.isIdle = false;
+		entity.add(ren);
+		
+		Position pos = new Position(0,0);
+		pos.y = ((int)this.rng.nextInt((37 - 8) + 1) + 8);
+		pos.x = (int) (spawnLeft ? (this.viewBounds.x + this.viewBounds.width) : this.viewBounds.x);
+		entity.add(pos);
+		
+		this.getEngine().addEntity(entity);
+		
+		return entity;
 	}
 
 }
