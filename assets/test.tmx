@@ -5,17 +5,17 @@
  </tileset>
  <layer name="Floor" width="80" height="10">
   <data encoding="base64" compression="zlib">
-   eJztVcENgzAMtNkENuko7SY8qs7RT/eATWCSNmoszMk2QcqHFkunhGDsy5HYRPXskSHWcMXgB7G05QbAGyP6yfxu+FvfynwvTysG5vHWOPDz9ubx1Oek/aAzRg39TiPyl3V2vm13qWdzwFzRXiyeFl/0+8MrddqP2SvjNKKelvv+pHVdteq+10eiOhzVdp1LuEQ1SPO0ekfUM6K+EAFj9ZlL4jHSt38kzIUaebG39N7q4UN65oWPgGGueUbcWkenEm2j/YlmE3CeIad3lqzcNc7CmLkIH9RNMAUxS/5TBNTN0n+gRS+t35XW90X8S/q9jKxGhvUORoa4F1prhRoKbmTfcXxGH+Qb1Qlrj/JeeKb/+AZu1SWM
+   eJztVcENgzAMtLsJbNJR2k14VJ2jH/aATdpJ2qhYmJN9BKkvaCTLIXHs85HYIvXjXrHvbU66wflORkn5BKIrGu1sfgvso7M234oz8oFxsjUldlluGU5/T5qPtIH24ve8MHtb1+Rss4m9GAPGYrlEOCO8aHfAJ/UfOxm90z0zPNDoZH7vD1nW1ajuZ32E1WFW230sw8JqkMcZ9Q7WM1hfYIK+uglLwTHKt38UeVVylPle43uthw/lW2c8Jgpzj5NhaxKearhl+RlnT8D8gpjZXYpi/+IujBMWw4O8mTyJz5r/xAR5i/gfZObL83eR5Xsx+5p+b1qdVlhvQSv4PcuSK+TQ5CrxG8dvtEG8rE5EOdq+4Sz/8Q3grya5
   </data>
  </layer>
  <layer name="Floor2" width="80" height="10">
   <data encoding="base64" compression="zlib">
-   eJztlQ0KgCAMRrfdpMNadJB+jpkDLbUhGZELe/BoSYJ8bUUIQGDFwwHuOTr9fQtQqs2vh2dsAcI4O7YWq2BuXQN7bq6uySKYW9dA+u2boUzeI/VHaR/z8+jOgxDX4lrFOQkhjHvwSmb+P/F0fn4GpOxOVyX5MV1QT4UakOfLvHR2LaCi9/k1NM3CT1tsZvxClg==
+   eJztlW0OgyAMhtv+5RS74G6hxoO47ZiThG7YFGIJBow+yRtq/aAWaAkBCFbhXxPocgk/aw7iays+DgyjZmNk78XtvMexWyGpNbgR6uhI6ODvp5BrR7jNHVkWtzIfRTl/D/zyBu3WlHkryvl7QNa+F9jk39H2h3Uf++fj+hbbqq/ROZHzEm73YC5XLoxca2vnT/aN7FiYv9I+4Xkm5n1E9mLUAPr5Ggpj7J3Uf2HDvnF2Wvbcm2vzBeYwRMY=
   </data>
  </layer>
  <layer name="Background" width="80" height="10">
   <data encoding="base64" compression="zlib">
-   eJztlVsKwjAQRaN/ug+tLkTFWF2GYD/ch+9N9Kc+F+FS3Ig32pQBJ6UDQqrkwKEwuZOPoWSU+mQNV4wJ3MAd3DK5FmyTrIQO7MFuxW8kvP+bNIkcGewzHuEJXuC5JGezEuZwAIcVHOV5X7xm13hbJx6MqaPuk7rO786YOuo+KebHnI2hhhM4hXFeWzBq0kPzWv03dnbc/2d2gnn7Z3APl8q9JxLSQ/PS3fFrFPNjzsxOMG//AV7hTZXvE9tD89LdEQgEAj54ApcbO+A=
+   eJztld1twkAQhNd+I+kDkUIg4rePBEgXeUggoQle+C8ipdAIc5LXWR07J8OLo8gjfbJ0nttbn6xZkWt9gg+HV7AAX2Dp+FrgwXhZrQn4Bm/Gm2ciHTzbUu0Z/HFt21vct/qZJ+5d/bZXXc/lF08b8OSwBTtwAPuET72s1gocwcl430EX9CrwXPjj2ra3uBf1Mw/z2151Pdd7zMgF1qDQy1muWTtrZ6m39794f0E/DmuyXqfK+3Pe9cEADMEYjIq1F4eB2WP9dt36p2AOZqSO958x2Lnhu/qJsxjWz+pon2UGOv9fyMyQkzY32ZywMyLOWXH2pfL9HrF8rzonWG+szmNxrp0hsUJmhpy0uZmaJ7onzllx9rHZo7l8i1L5XnVOsN5YHf2uRo0a/Q9dAL7Wnes=
   </data>
  </layer>
  <layer name="Forground" width="80" height="10">

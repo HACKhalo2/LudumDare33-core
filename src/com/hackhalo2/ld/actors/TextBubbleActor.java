@@ -49,6 +49,7 @@ public class TextBubbleActor extends Actor {
 					this.messageAlpha -= delta;
 					if(this.messageAlpha < 0f) {
 						this.messageAlpha = 0f;
+						this.elapsedTime = 0f;
 						this.shouldFade = false;
 						this.fadeIn = true;
 						this.message = null;

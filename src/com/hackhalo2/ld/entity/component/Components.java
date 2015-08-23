@@ -9,6 +9,7 @@ public class Components {
 	public static ComponentMapper<Player> PLAYER = ComponentMapper.getFor(Player.class);
 	public static ComponentMapper<SimpleAI> AI = ComponentMapper.getFor(SimpleAI.class);
 	public static ComponentMapper<TextBubble> TEXT_BUBBLE = ComponentMapper.getFor(TextBubble.class);
+	public static ComponentMapper<GirlComponent> GIRL = ComponentMapper.getFor(GirlComponent.class);
 	
 	private Components() { }
 

@@ -97,8 +97,6 @@ public class SimpleAISystem extends EntitySystem implements EntityListener {
 		ai.walkingSpeed = this.rng.nextInt((2 - 1) + 1) + 1;
 		entity.add(ai);
 		
-		System.out.println("Spawning new entity at X:"+pos.x+" Y:"+pos.y);
-		
 		this.getEngine().addEntity(entity);
 	}
 

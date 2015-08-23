@@ -45,7 +45,6 @@ public class RenderSystem extends EntitySystem implements Comparator<Entity>, En
 				int focusX, focusY;
 				Focus focus = Components.FOCUS.get(entity);
 				
-				//System.out.println("X: "+pos.x+" Y: "+pos.y);
 				if(pos.x <= 56)
 					focusX = 64;
 				else if(pos.x >= 885)

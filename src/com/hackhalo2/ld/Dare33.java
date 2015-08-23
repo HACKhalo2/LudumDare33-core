@@ -4,7 +4,6 @@ import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -14,6 +13,7 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.hackhalo2.ld.entity.component.Focus;
+import com.hackhalo2.ld.entity.component.GirlComponent;
 import com.hackhalo2.ld.entity.component.Player;
 import com.hackhalo2.ld.entity.component.Position;
 import com.hackhalo2.ld.entity.component.Render;
@@ -21,7 +21,7 @@ import com.hackhalo2.ld.entity.component.TextBubble;
 import com.hackhalo2.ld.entity.system.InputSystem;
 import com.hackhalo2.ld.entity.system.RenderSystem;
 import com.hackhalo2.ld.entity.system.SimpleAISystem;
-import com.hackhalo2.ld.entity.system.SoundEffectSystem;
+import com.hackhalo2.ld.util.MessageStrings;
 
 public class Dare33 extends ApplicationAdapter {
 	private OrthographicCamera camera;
@@ -30,8 +30,9 @@ public class Dare33 extends ApplicationAdapter {
 	private OrthogonalTiledMapRenderer tiledRenderer;
 	private TmxMapLoader mapLoader;
 	private TiledMap map;
-	private Music music;
 	private Stage uiStage;
+	private TextBubble bubble;
+	private int index = 0;
 	
 	@Override
 	public void create () {
@@ -41,17 +42,13 @@ public class Dare33 extends ApplicationAdapter {
 		this.map = this.mapLoader.load("test.tmx");
 		this.tiledRenderer = new OrthogonalTiledMapRenderer(this.map, 0.75f);
 		
-		this.music = Gdx.audio.newMusic(Gdx.files.internal("STE-008.mp3"));
-		this.music.setLooping(true);
-		this.music.setVolume(0.5f);
-		
 		this.camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		this.camera.zoom = 4f;
 		
 		this.entityEngine = new Engine();
 		Entity entity = new Entity();
 		
-		TextBubble bubble = new TextBubble(this.uiStage);
+		bubble = new TextBubble(this.uiStage);
 		
 		Texture tex = new Texture("Guy.png");
 		TextureRegion region = new TextureRegion(tex, 16, 32);
@@ -66,6 +63,7 @@ public class Dare33 extends ApplicationAdapter {
 		region = new TextureRegion(tex, 16, 32);
 		entity.add(new Position(32, 32));
 		entity.add(new Render(region, 1/20f));
+		entity.add(new GirlComponent());
 		this.entityEngine.addEntity(entity);
 		
 		this.renderSystem = new RenderSystem();
@@ -73,8 +71,6 @@ public class Dare33 extends ApplicationAdapter {
 		this.entityEngine.addSystem(new InputSystem());
 		SimpleAISystem aiSystem = new SimpleAISystem();
 		this.entityEngine.addSystem(aiSystem);
-		
-		this.music.play();
 	}
 	
 	@Override
@@ -87,6 +83,12 @@ public class Dare33 extends ApplicationAdapter {
 	@Override
 	public void render () {
 		float delta = Gdx.graphics.getDeltaTime();
+		if(this.index < MessageStrings.credits.length && !bubble.actor.isDrawing()) {
+			bubble.x = 0;
+			bubble.y = 0;
+			bubble.actor.startMessage().append(MessageStrings.credits[this.index]).endMessage();
+			this.index++;
+		}
 		
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -105,8 +107,6 @@ public class Dare33 extends ApplicationAdapter {
 	@Override
 	public void dispose() {
 		this.renderSystem.dispose();
-		this.music.stop();
-		this.music.dispose();
 		this.uiStage.draw();
 	}
 }

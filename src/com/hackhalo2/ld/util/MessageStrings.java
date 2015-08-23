@@ -1,22 +1,27 @@
 package com.hackhalo2.ld.util;
 
-import java.util.Random;
+import com.badlogic.gdx.math.MathUtils;
 
 public class MessageStrings {
 
-	private static String[] background; //random background chatter
-	private static String[] talk;       //The messages for the little girl at the beginning
-	private static String[] nice1;      //The messages when you are nice and accept
-	private static String[] nice2;      //The messages when you are nice but deny
-	private static String[] mean;       //The messages when you are mean
-	private static String[] story;      //Help her (Odd = kid, Even = Guy)
-	private static String[] mom;        //The Mom's conversation with the guy
-	private static String[] gossip;     //Random Gossip
-	private static Random rng;
+	public static String[] credits;
+	public static String[] background; //random background chatter
+	public static String[] talk;       //The messages for the little girl at the beginning
+	public static String[] nice1;      //The messages when you are nice and accept
+	public static String[] nice2;      //The messages when you are nice but deny
+	public static String[] mean;       //The messages when you are mean
+	public static String[] story;      //Help her (Odd = kid, Even = Guy)
+	public static String[] mom;        //The Mom's conversation with the guy
+	public static String[] gossip;     //Random Gossip
 	
 	private MessageStrings() { }
 	
+	public static String getRandomBackground() {
+		return background[MathUtils.random(0, (background.length-1))];
+	}
+	
 	static {
+		credits = new String[] { "Developed by Jacob Litewski", "For Ludum Dare Thirty Three", "Perceptions"};
 		background = new String[] { "Did you pick up the kids from school?", "What did you say?", "Oh, alright.",
 				"Man, I might have an issue with compulsive spending.", "When did a McSloppy cost five bucks?!",
 				"I miss my shrubberies&", "did you hear about becky and robert?", "there are good monsters, and bad monsters&",
