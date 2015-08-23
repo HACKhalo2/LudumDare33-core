@@ -35,8 +35,6 @@ public class InputSystem extends EntitySystem {
 		Render ren = Components.RENDER.get(this.thePlayer);
 		boolean inAction = false;
 
-		//System.out.println("X: "+pos.x+" Y: "+pos.y);
-
 		if(Gdx.input.isKeyPressed(Keys.W) && !Gdx.input.isKeyPressed(Keys.S)) { //Up
 			if(pos.y >= 37) {
 				pos.y = 37;

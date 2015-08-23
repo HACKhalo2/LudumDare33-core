@@ -22,7 +22,7 @@ public class RenderSystem extends EntitySystem implements Comparator<Entity>, En
 	private Family family;
 	private SpriteBatch batch;
 	private Array<Entity> entities;
-	private Rectangle viewBounds;
+	public Rectangle viewBounds;
 
 	public RenderSystem() {
 		super(0);
@@ -86,8 +86,8 @@ public class RenderSystem extends EntitySystem implements Comparator<Entity>, En
 	
 	private void setView(OrthographicCamera camera) {
 		this.batch.setProjectionMatrix(camera.combined);
-		float width = (camera.viewportWidth * camera.zoom) + 128;
-		float height = (camera.viewportHeight * camera.zoom) + 128;
+		float width = (camera.viewportWidth * camera.zoom) + 64;
+		float height = (camera.viewportHeight * camera.zoom) + 64;
 		this.viewBounds.set(camera.position.x - width / 2, camera.position.y - height / 2, width, height);
 	}
 	
@@ -108,6 +108,7 @@ public class RenderSystem extends EntitySystem implements Comparator<Entity>, En
 	@Override
 	public void removedFromEngine(Engine engine) {
 		this.entities.clear();
+		engine.removeEntityListener(this);
 	}
 	
 	@Override

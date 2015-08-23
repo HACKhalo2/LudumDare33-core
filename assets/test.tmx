@@ -15,7 +15,7 @@
  </layer>
  <layer name="Background" width="80" height="10">
   <data encoding="base64" compression="zlib">
-   eJztlVsKwjAQRaN/ug9fC1GxPpYh2A/34XsT/vhehHUl2n14o20Z4kxpQEiVHjg0TG76MYSMUp/M4YzRhwu4gksmV4FVkrWhBpuwnvHbsPz/NykTOXawxbiHB3iCx5RcnLVhDNuwk8FulHfFq3elt3nizrgV6i7Ja/+ujFuh7pKkf8xeD3qwD4dwENUmjB45Q/Oe+m/i3nH3T88E/faP4BpOlTwnfHKG5m1nh8mNrAOh7pKkf8yengn67d/AM7yo9HkSn6F529lh8iDrUKgXyEh3LjCDBSzSnQvNYMHP8wR7xkXW
+   eJztlVsKwjAQRaN/ug+tLkTFWF2GYD/ch+9N9Kc+F+FS3Ig32pQBJ6UDQqrkwKEwuZOPoWSU+mQNV4wJ3MAd3DK5FmyTrIQO7MFuxW8kvP+bNIkcGewzHuEJXuC5JGezEuZwAIcVHOV5X7xm13hbJx6MqaPuk7rO786YOuo+KebHnI2hhhM4hXFeWzBq0kPzWv03dnbc/2d2gnn7Z3APl8q9JxLSQ/PS3fFrFPNjzsxOMG//AV7hTZXvE9tD89LdEQgEAj54ApcbO+A=
   </data>
  </layer>
  <layer name="Forground" width="80" height="10">

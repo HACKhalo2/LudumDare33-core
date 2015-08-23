@@ -20,6 +20,7 @@ import com.hackhalo2.ld.entity.component.Render;
 import com.hackhalo2.ld.entity.component.TextBubble;
 import com.hackhalo2.ld.entity.system.InputSystem;
 import com.hackhalo2.ld.entity.system.RenderSystem;
+import com.hackhalo2.ld.entity.system.SimpleAISystem;
 import com.hackhalo2.ld.entity.system.SoundEffectSystem;
 
 public class Dare33 extends ApplicationAdapter {
@@ -51,9 +52,6 @@ public class Dare33 extends ApplicationAdapter {
 		Entity entity = new Entity();
 		
 		TextBubble bubble = new TextBubble(this.uiStage);
-		bubble.actor.startMessage().append("Test Message").appendElipses().endMessage();
-		bubble.x = 32;
-		bubble.y = 32;
 		
 		Texture tex = new Texture("Guy.png");
 		TextureRegion region = new TextureRegion(tex, 16, 32);
@@ -73,7 +71,8 @@ public class Dare33 extends ApplicationAdapter {
 		this.renderSystem = new RenderSystem();
 		this.entityEngine.addSystem(this.renderSystem);
 		this.entityEngine.addSystem(new InputSystem());
-		this.entityEngine.addSystem(new SoundEffectSystem());
+		SimpleAISystem aiSystem = new SimpleAISystem();
+		this.entityEngine.addSystem(aiSystem);
 		
 		this.music.play();
 	}
