@@ -36,6 +36,8 @@ public class Dare33 extends ApplicationAdapter {
 	private Stage uiStage;
 	private TextBubble bubble;
 	private GameOverActor actor;
+	static boolean gameOver = false;
+	static boolean alt = false;
 	private Music background;
 	private int index = 0;
 	
@@ -82,9 +84,8 @@ public class Dare33 extends ApplicationAdapter {
 		
 		this.renderSystem = new RenderSystem();
 		this.entityEngine.addSystem(this.renderSystem);
-		this.entityEngine.addSystem(new InputSystem());
-		SimpleAISystem aiSystem = new SimpleAISystem();
-		this.entityEngine.addSystem(aiSystem);
+		this.entityEngine.addSystem(new InputSystem(new TextBubble(this.uiStage)));
+		this.entityEngine.addSystem(new SimpleAISystem(new TextBubble(this.uiStage)));
 		this.entityEngine.addSystem(new GirlAISystem(new TextBubble(this.uiStage)));
 		
 		this.background.play();
@@ -100,6 +101,14 @@ public class Dare33 extends ApplicationAdapter {
 	@Override
 	public void render () {
 		float delta = Gdx.graphics.getDeltaTime();
+		
+		if(gameOver) {
+			this.actor.scrollup = true;
+			this.actor.taken = alt;
+			this.entityEngine.getSystem(SimpleAISystem.class).canSpawn = false;
+			gameOver = false;
+		}
+		
 		if(this.index < MessageStrings.credits.length && !bubble.actor.isDrawing()) {
 			bubble.x = 0;
 			bubble.y = 0;
@@ -127,5 +136,10 @@ public class Dare33 extends ApplicationAdapter {
 		this.background.stop();
 		this.background.dispose();
 		this.uiStage.draw();
+	}
+	
+	public static void gameOver(boolean flag) {
+		gameOver = true;
+		alt = flag;
 	}
 }

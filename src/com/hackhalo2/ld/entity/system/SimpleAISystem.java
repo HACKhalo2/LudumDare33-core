@@ -16,15 +16,19 @@ import com.hackhalo2.ld.entity.component.Components;
 import com.hackhalo2.ld.entity.component.Position;
 import com.hackhalo2.ld.entity.component.Render;
 import com.hackhalo2.ld.entity.component.SimpleAI;
+import com.hackhalo2.ld.entity.component.TextBubble;
 
 public class SimpleAISystem extends EntitySystem implements EntityListener {
 	private Family family;
 	private Array<Entity> entities;
 	private Random rng;
 	private Rectangle viewBounds = new Rectangle();
+	private TextBubble bubble;
+	public boolean canSpawn = true;
 
-	public SimpleAISystem() {
+	public SimpleAISystem(TextBubble bubble) {
 		super(1);
+		this.bubble = bubble;
 		this.rng = new Random();
 		this.family = Family.all(SimpleAI.class).get();
 		this.entities = new Array<>();
@@ -79,6 +83,8 @@ public class SimpleAISystem extends EntitySystem implements EntityListener {
 	}
 	
 	private void spawn() {
+		if(!this.canSpawn) return;
+		
 		Entity entity = new Entity();
 		SimpleAI ai = new SimpleAI();
 		
@@ -100,6 +106,10 @@ public class SimpleAISystem extends EntitySystem implements EntityListener {
 		entity.add(ai);
 		
 		this.getEngine().addEntity(entity);
+	}
+	
+	public void spawnMom() {
+		Entity entity = new Entity();
 	}
 
 }

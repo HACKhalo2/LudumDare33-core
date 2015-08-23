@@ -6,16 +6,20 @@ import com.badlogic.ashley.core.EntitySystem;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
+import com.hackhalo2.ld.Dare33;
 import com.hackhalo2.ld.entity.component.Components;
 import com.hackhalo2.ld.entity.component.Player;
 import com.hackhalo2.ld.entity.component.Position;
 import com.hackhalo2.ld.entity.component.Render;
+import com.hackhalo2.ld.entity.component.TextBubble;
 
 public class InputSystem extends EntitySystem {
 	private Entity thePlayer;
+	private TextBubble bubble;
 
-	public InputSystem() {
+	public InputSystem(TextBubble bubble) {
 		super(1);
+		this.bubble = bubble;
 	}
 
 	@Override
@@ -33,6 +37,13 @@ public class InputSystem extends EntitySystem {
 		Player player = Components.PLAYER.get(this.thePlayer);
 		Position pos = Components.POSITION.get(this.thePlayer);
 		Render ren = Components.RENDER.get(this.thePlayer);
+		
+		if(!this.getEngine().getSystem(RenderSystem.class).viewBounds.contains(player.bounds) && player.specialState) {
+			Dare33.gameOver(true);
+			player.specialState = false;
+			player.pauseInput = true;
+		}
+		
 		if(player.pauseInput) {
 			if(!ren.isIdle) ren.isIdle = true;
 			return;
