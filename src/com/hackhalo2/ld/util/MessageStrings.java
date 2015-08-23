@@ -8,8 +8,6 @@ public class MessageStrings {
 	public static String[] background; //random background chatter
 	public static String[] talk;       //The messages for the little girl at the beginning
 	public static String[] nice1;      //The messages when you are nice and accept
-	public static String[] nice2;      //The messages when you are nice but deny
-	public static String[] mean;       //The messages when you are mean
 	public static String[] story;      //Help her (Odd = kid, Even = Guy)
 	public static String[] mom;        //The Mom's conversation with the guy
 	public static String[] gossip;     //Random Gossip
@@ -28,13 +26,9 @@ public class MessageStrings {
 				"Hey, Big Zam!", "I'm sorry mario, but the princess is in another castle"
 		};
 		talk = new String[] { "*sniffle*", "Mommy? Daddy?", "Mommy, where did you go?", "Mommy! Daddy!", "Where am I at?", "I'm so scared&",
-				"Sir?", "Sir, do you know where my Parents are?", "Sir? Can you help me find them?", "Please sir, I'm really scared&",
-				"Why aren't you helping me sir?", "Oh& alright& *sniffle*", "*sob*", "I miss my mommy and daddy&"
+				"Sir?", "Sir, do you know where my Parents are?", "Sir? Can you help me find them?"
 		};
 		nice1 = new String[] { "Hrm?", "I'm sorry, I don't", "Alright, I guess I can do that." };
-		nice2 = new String[] { "Hrm?", "I'm sorry, I don't", "I'm sorry& I can't&", "I'm really, really sorry, but I can't&",
-				"&I wish I could&", "*sigh* I'm sorry&"};
-		mean = new String[] { "Hrm?", "No.", "*sigh* No.", "Go. Away.", "Because I won't.", "hrumph&" };
 		story = new String[] { "Thank you for helping me, sir.", "No problem. So where did you lose your mom at?", "um& that way!",
 				"Alright, hold my hand and we'll walk together and find her, okay?", "*nods*", "So what do you like to do?",
 				"I like to play with my dolls.", "oh?", "yea! I have lots!", "have any with you now?",

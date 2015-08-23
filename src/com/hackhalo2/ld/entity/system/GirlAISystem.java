@@ -43,7 +43,27 @@ public class GirlAISystem extends EntitySystem {
 		GirlComponent girl = Components.GIRL.get(this.theGirl);
 		girl.bounds.setPosition(girlPos.x, girlPos.y);
 		
+		if(player.respond && !this.bubble.actor.isDrawing()) {
+			this.bubble.actor.startMessage().setMessageColor(Color.BLUE).append(MessageStrings.nice1[player.messageIndex]).endMessage();
+			player.messageIndex++;
+			player.respond = false;
+			player.isResponding = true;
+		} else if(player.isResponding && !this.bubble.actor.isDrawing()) {
+			player.isResponding = false;
+			girl.respond = true;
+			System.out.println("Girl should respond");
+			girl.bubblePos.x = 0;
+			return;
+		}
+		
 		if((girl.messageIndex < 6 || (girl.respond && girl.firstIncounter)) && !this.bubble.actor.isDrawing()) {
+			if(girl.messageIndex > 8) {
+				this.getEngine().removeEntity(this.theGirl);
+				this.getEngine().removeSystem(this);
+				player.specialState = true;
+				player.pauseInput = false;
+				return;
+			}
 			this.bubble.actor.startMessage().setMessageColor(Color.PINK).append(MessageStrings.talk[girl.messageIndex]).endMessage();
 			if(girl.bubblePos.x != -1) this.bubble.x = (int)girl.bubblePos.x;
 			else this.bubble.x = (int)((this.bubble.actor.getWidth() + Gdx.graphics.getWidth()) - (this.bubble.actor.getWidth() * 2) - 32);
@@ -60,9 +80,8 @@ public class GirlAISystem extends EntitySystem {
 			girl.isResponding = false;
 			player.respond = true;
 			System.out.println("Player should respond");
+			return;
 		}
-		
-		
 		
 		if(!girl.firstIncounter && girl.bounds.overlaps(player.bounds)) {
 			girl.firstIncounter = true;
@@ -70,6 +89,7 @@ public class GirlAISystem extends EntitySystem {
 			girl.bubblePos.x = (int)(((this.bubble.actor.getWidth() + Gdx.graphics.getWidth()) - (this.bubble.actor.getWidth() * 2)) - 32);
 			girl.bubblePos.y = (int) Gdx.graphics.getHeight() / 2;
 			girl.respond = true;
+			player.pauseInput = true;
 		}
 	}
 

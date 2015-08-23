@@ -33,6 +33,10 @@ public class InputSystem extends EntitySystem {
 		Player player = Components.PLAYER.get(this.thePlayer);
 		Position pos = Components.POSITION.get(this.thePlayer);
 		Render ren = Components.RENDER.get(this.thePlayer);
+		if(player.pauseInput) {
+			if(!ren.isIdle) ren.isIdle = true;
+			return;
+		}
 		boolean inAction = false;
 
 		if(Gdx.input.isKeyPressed(Keys.W) && !Gdx.input.isKeyPressed(Keys.S)) { //Up

@@ -74,7 +74,7 @@ public class Dare33 extends ApplicationAdapter {
 		region = new TextureRegion(tex, 16, 32);
 		entity.add(new Position(475, 32));
 		Render ren = new Render(region, 1/20f);
-		ren.direction = 2;
+		ren.direction = 3;
 		ren.isIdle = false;
 		entity.add(ren);
 		entity.add(new GirlComponent());

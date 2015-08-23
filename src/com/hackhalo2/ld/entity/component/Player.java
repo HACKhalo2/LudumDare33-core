@@ -7,6 +7,8 @@ public class Player implements Component {
 	public boolean specialState = false;
 	public boolean hudActive = false;
 	public boolean respond = false;
+	public boolean isResponding = false;
+	public boolean pauseInput = false;
 	public boolean wasMean = false;
 	public boolean wasNice = false;
 	public int messageIndex = 0;
